@@ -1,0 +1,2 @@
+# React-Concept-Intro
+This is an intro to the React framework, similar in manner to how we use it on the Purdue IEEE ROV team. Ideally by the end, you'll be able to understand the basic concept of component creation, data flow both up and down in a parent-child relationship, and the general concept of how React works and behaves. Whether we get to all that in the Learning workshop, one can only hope, but I shall sure try. 
