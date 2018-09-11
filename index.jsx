@@ -41,8 +41,8 @@ class App extends React.Component { // This takes the React Component class, and
       without losing reference to the class
     */
     this.changeDisabled = this.changeDisabled.bind(this);
-    this.slideRender = this.slideRender.bind(this);
     this.listRender = this.listRender.bind(this);
+    //this.slideRender = this.slideRender.bind(this);
   }
 
   /*
@@ -71,15 +71,6 @@ class App extends React.Component { // This takes the React Component class, and
                         rend={this.changeDisabled}
                       />
                     </Card>
-                    <Card>
-                      <ListValues
-                        rend={this.listRender}
-                        slideRend={this.slideRender}
-                        slide={this.state.box.weight}
-                      />
-                    </Card>
-
-                    <Box color={this.state.box.color} weight={this.state.box.weight} />
                   </div>
               </div>
           </div>
@@ -128,15 +119,6 @@ class App extends React.Component { // This takes the React Component class, and
   listRender(listing) {
     var boxCopy = this.state.box;
     boxCopy.color = listing;
-
-    this.setState({
-      box: boxCopy
-    });
-  }
-
-  slideRender(val) {
-    var boxCopy = this.state.box;
-    boxCopy.weight = val;
 
     this.setState({
       box: boxCopy

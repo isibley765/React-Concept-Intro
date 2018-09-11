@@ -7,10 +7,18 @@ import Slider from "../Slider/Slider.jsx";
 
 export default class ListValues extends Component {
 
+/*
+  This component takes 1 OR 3 properties, with an optional array
+    props.rend        required      Renders value from the list locally, and then passes to the parent
+    props.slide       optional      Required for slider render, number value between 0 and 100
+    props.slideRend   optional      Connects slider value to the passed props.slide value
+                                    If props.slideRend doesn't update parent props.slide, slider won't move
 
-  // Ternary operators: (if statement == true) ? (return first item) : (else return second);
+    props.list        optional      If you want to define your own list in index.jsx, pass it through this parameter
+*/
   constructor(props) {
     super(props);
+    // Ternary operators: (if statement == true) ? (return first item) : (else return second);
     this.state = {
         listings: props.list? props.list : [
           "red", "blue", "green", "purple", "black"
@@ -34,7 +42,7 @@ export default class ListValues extends Component {
   renderList() {
     return this.state.listings.map((val, i) => {
         return (
-            <ListItem key={val+i} listing={val} rend={this.renderChoice}/>
+            <ListItem key={val+i} />
         )
     })
   }
@@ -44,7 +52,9 @@ export default class ListValues extends Component {
         choice: listing
       })
 
-      this.props.rend(listing);
+      if(this.props.rend) {
+        this.props.rend(listing);
+      }
   }
 
   toggleList() {
@@ -55,7 +65,7 @@ export default class ListValues extends Component {
     return (
       <div className={styles.ddwrap}>
         {this.props.slide && 
-        <Slider rend={this.props.slideRend} val={this.props.slide} />}
+        <Slider />}
         <div className="dd-header">
           <button className={styles.dropclick} onClick={this.toggleList}>{this.state.choice}</button>
         </div>
