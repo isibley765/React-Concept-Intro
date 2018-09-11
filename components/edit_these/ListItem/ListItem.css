@@ -1,0 +1,9 @@
+.item {
+    border: 3px outset #17A589;
+    padding-left: 12px;
+    margin: 2px 0 2px 0;
+}
+
+.item:active {
+    border-style: inset;
+}

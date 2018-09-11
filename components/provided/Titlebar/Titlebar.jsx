@@ -7,10 +7,12 @@ import styles from './titlebar.css';
 class Titlebar extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {text: "Purdue ROV 2018"};
+        this.state = {text: props.text? props.text : "Purdue ROV 2018"};
+        /* saves either the value of props.text, or the default */
 
     }
 
+    // Possibly our most straightforward component
     render() {
         return (
             <div className={styles.title}>

@@ -10,13 +10,13 @@ export default class ___________ extends Component {
 
   }
 
-  componentDidMount() {}
-
   render() {
     return (
         <div>
         </div>
     );
   }
+
+  componentDidMount() {}
 
 }

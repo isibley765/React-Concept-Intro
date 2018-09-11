@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ThrusterCircle from '../ThrusterCircle/ThrusterCircle.jsx';
-import ToolCircle from '../ToolCircle/ToolCircle.jsx';
 import styles from "./ThrusterInfo.css";
 
 
@@ -18,7 +17,7 @@ export default class ThrusterInfo extends Component {
 
   rendDisabled(val, indx) {       // Disables the thruster that was just clicked on
     let discpy = this.state.disabled;
-    discpy[indx] = val;
+    discpy[indx] = val;   // thruster[indx]: disabled -> enabled || enabled -> disabled (or that's the idea)
     this.setState({
       disabled: discpy
     }, function() {
@@ -34,6 +33,11 @@ export default class ThrusterInfo extends Component {
     });
   }
 
+  /*
+      This render method uses both dynamic and deliberate defining of the components on the page.
+      Which one do you like better?
+      What if this were a list with 10,000 items (and hopefully a search field)?
+  */
   render() {
     return (
       <div className={styles.container}>

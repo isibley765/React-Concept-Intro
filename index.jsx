@@ -6,6 +6,7 @@ import CamView from './components/provided/CamView/CamView.jsx'  // Our camera c
 import Titlebar from './components/provided/Titlebar/Titlebar.jsx';  // Titlebar... should be fairly obvious
 import ThrusterInfo from './components/provided/ThrusterInfo/ThrusterInfo.jsx';  // Our initial starting component for the students to witness
 
+import ListValues from './components/edit_these/ListValues/ListValues.jsx';
 
 class App extends React.Component { // This takes the React Component class, and lets us build on top of it
   /*
@@ -27,6 +28,7 @@ class App extends React.Component { // This takes the React Component class, and
     this.state = {    // The ONLY PLACE you should directly write values to this.state
         thrusters: [.0, .0, .0, .0, .0, .0, .0, .0],
         disabled_thrusters: [false, false, false, false, false, false, false, false],
+        color: "grey"
     }
 
     /*
@@ -35,6 +37,7 @@ class App extends React.Component { // This takes the React Component class, and
       without losing reference to the class
     */
     this.changeDisabled = this.changeDisabled.bind(this);
+    this.listRender = this.listRender.bind(this);
   }
 
   /*
@@ -62,6 +65,9 @@ class App extends React.Component { // This takes the React Component class, and
                         disabled={this.state.disabled_thrusters}
                         rend={this.changeDisabled}
                       />
+                    </Card>
+                    <Card>
+                      <ListValues rend={this.listRender} />
                     </Card>
                   </div>
               </div>
@@ -107,6 +113,13 @@ class App extends React.Component { // This takes the React Component class, and
       thrusters: dis
     });
   }
+
+  listRender(listing) {
+      this.setState({
+        color: listing
+      });
+  }
+
 }
 
 
