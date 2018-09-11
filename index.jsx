@@ -7,6 +7,7 @@ import Titlebar from './components/provided/Titlebar/Titlebar.jsx';  // Titlebar
 import ThrusterInfo from './components/provided/ThrusterInfo/ThrusterInfo.jsx';  // Our initial starting component for the students to witness
 
 import ListValues from './components/edit_these/ListValues/ListValues.jsx';
+import Box from './components/edit_these/Box/Box.jsx';
 
 class App extends React.Component { // This takes the React Component class, and lets us build on top of it
   /*
@@ -77,6 +78,8 @@ class App extends React.Component { // This takes the React Component class, and
                         slide={this.state.box.weight}
                       />
                     </Card>
+
+                    <Box color={this.state.box.color} weight={this.state.box.weight} />
                   </div>
               </div>
           </div>
