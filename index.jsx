@@ -28,7 +28,10 @@ class App extends React.Component { // This takes the React Component class, and
     this.state = {    // The ONLY PLACE you should directly write values to this.state
         thrusters: [.0, .0, .0, .0, .0, .0, .0, .0],
         disabled_thrusters: [false, false, false, false, false, false, false, false],
-        color: "grey"
+        box: {
+          color: "grey",
+          weight: 10
+        }
     }
 
     /*
@@ -37,6 +40,7 @@ class App extends React.Component { // This takes the React Component class, and
       without losing reference to the class
     */
     this.changeDisabled = this.changeDisabled.bind(this);
+    this.slideRender = this.slideRender.bind(this);
     this.listRender = this.listRender.bind(this);
   }
 
@@ -67,7 +71,11 @@ class App extends React.Component { // This takes the React Component class, and
                       />
                     </Card>
                     <Card>
-                      <ListValues rend={this.listRender} />
+                      <ListValues
+                        rend={this.listRender}
+                        slideRend={this.slideRender}
+                        slide={this.state.box.weight}
+                      />
                     </Card>
                   </div>
               </div>
@@ -115,9 +123,21 @@ class App extends React.Component { // This takes the React Component class, and
   }
 
   listRender(listing) {
-      this.setState({
-        color: listing
-      });
+    var boxCopy = this.state.box;
+    boxCopy.color = listing;
+
+    this.setState({
+      box: boxCopy
+    });
+  }
+
+  slideRender(val) {
+    var boxCopy = this.state.box;
+    boxCopy.weight = val;
+
+    this.setState({
+      box: boxCopy
+    });
   }
 
 }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styles from "./ListValues.css";
 
 import ListItem from "../ListItem/ListItem.jsx";
+import Slider from "../Slider/Slider.jsx";
 
 
 export default class ListValues extends Component {
@@ -53,6 +54,8 @@ export default class ListValues extends Component {
   render() {
     return (
       <div className={styles.ddwrap}>
+        {this.props.slide && 
+        <Slider rend={this.props.slideRend} val={this.props.slide} />}
         <div className="dd-header">
           <button className={styles.dropclick} onClick={this.toggleList}>{this.state.choice}</button>
         </div>
