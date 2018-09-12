@@ -11,7 +11,7 @@ export default class ListValues extends Component {
   This component takes 2 OR 4 properties, with an optional array
     props.color       required      The color that the parent component is seeing; preferably the same value that the render function changes
     props.rend        required      Renders value from the list locally, and then passes item value to the parent
-    
+
     props.slide       optional      Required for slider render, number value between 0 and 100
     props.slideRend   optional      Connects slider value to the passed props.slide value
                                     If props.slideRend doesn't update parent props.slide, slider won't move
@@ -67,7 +67,7 @@ export default class ListValues extends Component {
     return (
       <div className={styles.ddwrap}>
         {this.props.slide && 
-        <Slider />}
+        <Slider val={this.props.slide} rend={this.props.slideRend}/>}
         <div className="dd-header">
           <button className={styles.dropclick} onClick={this.toggleList}>{this.props.color}</button>
         </div>
