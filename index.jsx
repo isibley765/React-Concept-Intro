@@ -115,6 +115,10 @@ class App extends React.Component { // This takes the React Component class, and
     });
   }
 
+  /*
+    copy this to make slideRender and uncomment the bind function in the constructor
+    but change the weight, not the color
+  */
   listRender(listing) {
     var boxCopy = this.state.box;
     boxCopy.color = listing;
@@ -125,7 +129,6 @@ class App extends React.Component { // This takes the React Component class, and
   }
 
 }
-
 
 /*
     This renders the App class in React onto the html
