@@ -79,7 +79,6 @@ class App extends React.Component { // This takes the React Component class, and
   }
 
   componentDidMount() {   // When this successfully "mounts" onto the page, run the following function
-    var that = this;
     window.react = this;
 
     setInterval(() => {   // All this does is show the UI changes when the values of this.state are changed

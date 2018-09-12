@@ -7,8 +7,7 @@ export default class ThrusterInfo extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {'disabled': null};
-    this.state.disabled = props.disabled;
+    this.state = {'disabled': props.disabled};
 
 
     this.rendDisabled = this.rendDisabled.bind(this);
