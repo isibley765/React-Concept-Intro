@@ -8,8 +8,10 @@ import Slider from "../Slider/Slider.jsx";
 export default class ListValues extends Component {
 
 /*
-  This component takes 1 OR 3 properties, with an optional array
-    props.rend        required      Renders value from the list locally, and then passes to the parent
+  This component takes 2 OR 4 properties, with an optional array
+    props.color       required      The color that the parent component is seeing; preferably the same value that the render function changes
+    props.rend        required      Renders value from the list locally, and then passes item value to the parent
+    
     props.slide       optional      Required for slider render, number value between 0 and 100
     props.slideRend   optional      Connects slider value to the passed props.slide value
                                     If props.slideRend doesn't update parent props.slide, slider won't move
@@ -21,7 +23,7 @@ export default class ListValues extends Component {
     // Ternary operators: (if statement == true) ? (return first item) : (else return second);
     this.state = {
         listings: props.list? props.list : [
-          "red", "blue", "green", "purple", "black"
+          "red", "blue", "green", "purple", "black", "grey"
         ],
         choice: "Dropdown"
     }  // This saves a list passed from a parent if present, else it saves a preset default list
@@ -42,7 +44,7 @@ export default class ListValues extends Component {
   renderList() {
     return this.state.listings.map((val, i) => {
         return (
-            <ListItem key={val+i} />
+            <ListItem key={val+i} listing={val} rend={this.renderChoice} />
         )
     })
   }
@@ -67,7 +69,7 @@ export default class ListValues extends Component {
         {this.props.slide && 
         <Slider />}
         <div className="dd-header">
-          <button className={styles.dropclick} onClick={this.toggleList}>{this.state.choice}</button>
+          <button className={styles.dropclick} onClick={this.toggleList}>{this.props.color}</button>
         </div>
         <ul className={styles.ddlist}>
           {this.renderList()}
